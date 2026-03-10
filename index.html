@@ -112,9 +112,9 @@
             animation-play-state: paused;
         }
         .program-card {
-            width: 280px;
-            height: 380px;
-            border-radius: 24px;
+            width: 220px; /* Reduced for better visibility */
+            height: 300px;
+            border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.12);
             position: relative;
             overflow: hidden;
@@ -123,7 +123,7 @@
             cursor: pointer;
         }
         @media (min-width: 768px) {
-            .program-card { width: 356px; height: 480px; }
+            .program-card { width: 260px; height: 350px; } /* Reduced from 356x480 */
         }
         .program-card:hover {
             transform: translateY(-10px) scale(1.02);
@@ -152,21 +152,23 @@
     <section id="about" class="relative w-full min-h-screen flex flex-col justify-center overflow-hidden pt-32" style="background: linear-gradient(180deg, #E8F0FF 0%, #F5F9FF 50%, #FFFFFF 100%);">
         
         <!-- Main Content -->
-        <div class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pt-12">
-            <div class="flex flex-col items-center text-center max-w-4xl fade-in visible" style="gap: 32px;">
+        <div class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pt-8">
+            <div class="flex flex-col items-center text-center max-w-5xl fade-in visible" style="gap: 28px;">
                 
                 <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-blue-100 shadow-sm text-xs font-bold text-blue-700 tracking-widest uppercase">
                     <span class="w-2 h-2 rounded-full bg-blue-600"></span>
                     브랜드 매니저 & MD
                 </div>
 
-                <h1 class="font-bold text-slate-900 tracking-tighter leading-[1.1]" style="font-size: clamp(36px, 6vw, 72px); letter-spacing: -0.02em;">
+                <!-- Title adjusted to prevent 3 lines on Macbooks -->
+                <h1 class="font-bold text-slate-900 tracking-tighter leading-[1.1]" style="font-size: clamp(32px, 5.5vw, 64px); letter-spacing: -0.02em; word-break: keep-all;">
                     데이터로 기획하고<br/>
                     <span class="text-blue-700">AI로 구현하다.</span>
                 </h1>
 
-                <p class="font-medium text-slate-600" style="font-size: clamp(16px, 2vw, 20px); line-height: 1.6; max-width: 600px; word-break: keep-all;">
-                    1.5년의 커머스 디렉팅 경험으로 제품 기획부터 마케팅까지 풀사이클을 주도하며, 생성형 AI 파이프라인을 구축해 비용구조를 혁신적으로 개선합니다.
+                <!-- Subtitle explicitly broken into 2 lines for desktop -->
+                <p class="font-medium text-slate-600" style="font-size: clamp(15px, 1.8vw, 18px); line-height: 1.6; max-width: 800px; word-break: keep-all;">
+                    1.5년의 커머스 디렉팅 경험으로 제품 기획부터 마케팅까지 풀사이클을 주도하며,<br class="hidden md:block"/> 생성형 AI 파이프라인을 구축해 비용구조를 혁신적으로 개선합니다.
                 </p>
 
                 <!-- Action Buttons -->
@@ -184,129 +186,129 @@
             </div>
         </div>
 
-        <!-- Program Cards Carousel -->
-        <div class="relative z-10 w-full overflow-hidden fade-in visible" style="padding-top: 60px; padding-bottom: 60px;">
+        <!-- Program Cards Carousel (Reduced Size & Spacing) -->
+        <div class="relative z-10 w-full overflow-hidden fade-in visible" style="padding-top: 40px; padding-bottom: 40px;">
             <!-- Gradient Overlays -->
-            <div class="absolute left-0 top-0 bottom-0 z-20 pointer-events-none" style="width: 150px; background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);"></div>
-            <div class="absolute right-0 top-0 bottom-0 z-20 pointer-events-none" style="width: 150px; background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);"></div>
+            <div class="absolute left-0 top-0 bottom-0 z-20 pointer-events-none" style="width: 100px; background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);"></div>
+            <div class="absolute right-0 top-0 bottom-0 z-20 pointer-events-none" style="width: 100px; background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);"></div>
 
             <!-- Scrolling Container -->
             <div class="scroll-track">
                 <!-- Group 1 -->
-                <div class="flex gap-6 pr-6 pl-6">
+                <div class="flex gap-4 pr-4 pl-4">
                     <div class="program-card">
                         <img src="https://i.ibb.co/kVnjthjz/0828-2094-3.png" alt="브랜딩" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Brand</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">브랜딩</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">브랜딩</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/dqcvVrd/58-74-3.png" alt="제품 디자인" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Design</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">제품 디자인</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 디자인</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/9kTd4znb/a-76-1.png" alt="제품 연출" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Product</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">제품 연출</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 연출</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/mfjsk7S/a-106-1.png" alt="광고 컨텐츠 제작" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Content</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">광고 컨텐츠 제작</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Content</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">광고 컨텐츠 제작</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/mF4Jj8Zm/image-2462.png" alt="제품 디자인" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Design</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">제품 디자인</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 디자인</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/vvRHdLM8/55-1.png" alt="제품 연출" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Product</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">제품 연출</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 연출</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/rKnBVcyV/Group-2614.png" alt="브랜딩" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Brand</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">브랜딩</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">브랜딩</h3>
                         </div>
                     </div>
                 </div>
                 <!-- Group 2 (Clone for infinite effect) -->
-                <div class="flex gap-6 pr-6">
+                <div class="flex gap-4 pr-4">
                     <div class="program-card">
                         <img src="https://i.ibb.co/kVnjthjz/0828-2094-3.png" alt="브랜딩" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Brand</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">브랜딩</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">브랜딩</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/dqcvVrd/58-74-3.png" alt="제품 디자인" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Design</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">제품 디자인</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 디자인</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/9kTd4znb/a-76-1.png" alt="제품 연출" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Product</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">제품 연출</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 연출</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/mfjsk7S/a-106-1.png" alt="광고 컨텐츠 제작" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Content</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">광고 컨텐츠 제작</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Content</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">광고 컨텐츠 제작</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/mF4Jj8Zm/image-2462.png" alt="제품 디자인" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Design</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">제품 디자인</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 디자인</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/vvRHdLM8/55-1.png" alt="제품 연출" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Product</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">제품 연출</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 연출</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/rKnBVcyV/Group-2614.png" alt="브랜딩" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-6 flex flex-col gap-2">
-                            <span class="font-inter text-xs font-medium text-white/80 uppercase tracking-widest">Brand</span>
-                            <h3 class="font-inter text-2xl font-semibold text-white leading-snug">브랜딩</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
+                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
+                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">브랜딩</h3>
                         </div>
                     </div>
                 </div>
