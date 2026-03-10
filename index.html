@@ -399,16 +399,31 @@
     </section>
 
     <!-- SECTION 02: Product Showcase -->
-    <section id="products" class="py-24 bg-gray-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-16 fade-in">
+    <section id="products" class="py-32 relative bg-slate-50 border-b border-gray-100 overflow-hidden">
+        <!-- Decorative background mesh -->
+        <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+            <div class="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-blue-600/5 blur-3xl"></div>
+            <div class="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-indigo-600/5 blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6 fade-in">
                 <div>
-                    <div class="text-blue-accent font-bold text-sm tracking-widest uppercase mb-2">주요 프로젝트</div>
-                    <h2 class="text-4xl font-black tracking-tighter uppercase">Product Center.</h2>
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="text-blue-accent font-bold text-sm tracking-widest uppercase">주요 프로젝트</div>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-700 text-[10px] font-black uppercase tracking-widest rounded-full animate-pulse border border-blue-200">
+                            Click Cards ✨
+                        </span>
+                    </div>
+                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase text-slate-900">Product Center.</h2>
+                    <p class="mt-4 text-slate-500 font-medium max-w-lg leading-relaxed text-sm md:text-base">
+                        기획부터 실행까지, 전 과정을 주도적으로 이끌어낸 핵심 프로젝트입니다. <br class="hidden md:block"/>
+                        <strong class="text-blue-600 font-bold">각 제품 카드를 클릭</strong>하여 상세한 기획 과정과 결과물을 확인해 보세요.
+                    </p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="productGrid">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="productGrid">
                 <!-- Products via JS -->
             </div>
         </div>
@@ -1161,17 +1176,44 @@
             const grid = document.getElementById('productGrid');
             if (!grid) return;
             grid.innerHTML = products.map(p => `
-                <div class="product-card bg-white p-8 cursor-pointer group" onclick="openProduct(${p.id})">
-                    <div class="flex justify-between items-start mb-6 font-brand">
-                        <div class="text-xs font-black text-slate-200 tracking-widest uppercase">PROJ #0${p.id}</div>
-                        <div class="text-blue-accent font-black text-lg">${p.price}</div>
+                <div class="group relative bg-white rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full transform hover:-translate-y-2" onclick="openProduct(${p.id})">
+                    <!-- Image Container with Hover Overlay -->
+                    <div class="relative aspect-[4/5] bg-gray-50 overflow-hidden border-b border-gray-100">
+                        <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                        
+                        <!-- Dim Overlay & View Case Study Button -->
+                        <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                            <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex flex-col items-center">
+                                <div class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center mb-3 shadow-xl">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                                    </svg>
+                                </div>
+                                <span class="text-white font-bold tracking-widest uppercase text-sm drop-shadow-md">View Case Study</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Top Tag -->
+                        <div class="absolute top-4 left-4 flex gap-2 z-10">
+                            <span class="px-3 py-1 bg-white/95 backdrop-blur-sm text-slate-900 text-[10px] font-black uppercase tracking-widest rounded-full shadow-sm">
+                                PROJ #0${p.id}
+                            </span>
+                        </div>
                     </div>
-                    <div class="aspect-[4/5] bg-gray-50 mb-8 flex items-center justify-center overflow-hidden rounded-lg">
-                        <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                    </div>
-                    <div class="space-y-2">
-                        <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest font-brand">${p.category}</div>
-                        <h3 class="text-2xl font-black tracking-tighter uppercase group-hover:text-blue-600 transition-colors">${p.title}</h3>
+
+                    <!-- Card Content -->
+                    <div class="p-8 flex flex-col flex-grow bg-white relative z-10">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="text-[10px] font-bold text-blue-600 uppercase tracking-widest font-brand bg-blue-50 px-2 py-1 rounded-md">${p.category}</div>
+                            <div class="text-slate-900 font-black text-sm">${p.price}</div>
+                        </div>
+                        <h3 class="text-2xl font-black tracking-tighter uppercase group-hover:text-blue-600 transition-colors leading-tight break-keep">${p.title}</h3>
+                        
+                        <!-- Read More line -->
+                        <div class="mt-6 pt-6 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-blue-600 transition-colors uppercase tracking-widest mt-auto">
+                            <span>상세 기획 보기</span>
+                            <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+                        </div>
                     </div>
                 </div>
             `).join('');
