@@ -28,17 +28,20 @@
         .blue-accent { background-color: #1D4ED8; }
         .text-blue-accent { color: #1D4ED8; }
         
-        /* Dashboard Card Styling */
+        /* Dashboard Card Styling - Mobile Optimized */
         .kpi-card {
             background: #ffffff;
             border: 1px solid #f1f5f9;
-            padding: 1.5rem;
+            padding: 1.25rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
-            min-height: 220px;
+            min-height: 160px; /* Reduced for mobile */
             display: flex;
             flex-direction: column;
+        }
+        @media (min-width: 768px) {
+            .kpi-card { min-height: 220px; padding: 1.5rem; }
         }
         .kpi-card:hover { 
             border-color: #1D4ED8; 
@@ -65,8 +68,11 @@
         .chart-container {
             position: relative;
             width: 100%;
-            height: 120px;
+            height: 100px;
             margin-top: auto;
+        }
+        @media (min-width: 768px) {
+            .chart-container { height: 120px; }
         }
 
         .modal-chart-container {
@@ -98,7 +104,7 @@
             transform: translateY(-5px);
         }
 
-        /* Hero Carousel Infinite Scroll */
+        /* Hero Carousel Infinite Scroll - Mobile Optimized */
         @keyframes infiniteScroll {
             0% { transform: translateX(0); }
             100% { transform: translateX(-50%); }
@@ -112,10 +118,10 @@
             animation-play-state: paused;
         }
         .program-card {
-            width: 220px; /* Reduced for better visibility */
-            height: 300px;
-            border-radius: 20px;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            width: 160px; /* Highly reduced for mobile (iPhone 11) */
+            height: 220px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
             position: relative;
             overflow: hidden;
             flex-shrink: 0;
@@ -123,7 +129,7 @@
             cursor: pointer;
         }
         @media (min-width: 768px) {
-            .program-card { width: 260px; height: 350px; } /* Reduced from 356x480 */
+            .program-card { width: 260px; height: 350px; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.12); }
         }
         .program-card:hover {
             transform: translateY(-10px) scale(1.02);
@@ -133,11 +139,11 @@
 <body class="antialiased">
 
     <!-- Header Navigation -->
-    <nav class="fixed w-full bg-white/60 backdrop-blur-md z-50 border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
-            <div class="flex items-center gap-4">
-                <div class="blue-accent w-10 h-10 flex items-center justify-center text-white font-black text-xl rounded-lg">A</div>
-                <div class="font-brand font-black text-2xl tracking-tighter uppercase text-slate-900">COMMERCE.MD</div>
+    <nav class="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 h-16 md:h-20 flex justify-between items-center">
+            <div class="flex items-center gap-3 md:gap-4">
+                <div class="blue-accent w-8 h-8 md:w-10 md:h-10 flex items-center justify-center text-white font-black text-lg md:text-xl rounded-lg">A</div>
+                <div class="font-brand font-black text-xl md:text-2xl tracking-tighter uppercase text-slate-900">COMMERCE.MD</div>
             </div>
             <div class="hidden md:flex space-x-12 font-bold text-xs uppercase tracking-widest text-slate-500">
                 <a href="#about" class="hover:text-blue-600 transition">소개</a>
@@ -149,37 +155,37 @@
     </nav>
 
     <!-- New Hero Section (PulseFit Style) -->
-    <section id="about" class="relative w-full min-h-screen flex flex-col justify-center overflow-hidden pt-32" style="background: linear-gradient(180deg, #E8F0FF 0%, #F5F9FF 50%, #FFFFFF 100%);">
+    <section id="about" class="relative w-full min-h-screen flex flex-col justify-center overflow-hidden pt-20 md:pt-32" style="background: linear-gradient(180deg, #E8F0FF 0%, #F5F9FF 50%, #FFFFFF 100%);">
         
         <!-- Main Content -->
-        <div class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pt-8">
-            <div class="flex flex-col items-center text-center max-w-5xl fade-in visible" style="gap: 28px;">
+        <div class="relative z-10 flex-1 flex flex-col items-center justify-center px-4 pt-6 md:pt-8">
+            <div class="flex flex-col items-center text-center max-w-5xl fade-in visible gap-5 md:gap-7">
                 
-                <div class="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-full border border-blue-100 shadow-sm text-xs font-bold text-blue-700 tracking-widest uppercase">
-                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-white rounded-full border border-blue-100 shadow-sm text-[10px] md:text-xs font-bold text-blue-700 tracking-widest uppercase">
+                    <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-600"></span>
                     브랜드 매니저 & MD
                 </div>
 
-                <!-- Title adjusted to prevent 3 lines on Macbooks -->
-                <h1 class="font-bold text-slate-900 tracking-tighter leading-[1.1]" style="font-size: clamp(32px, 5.5vw, 64px); letter-spacing: -0.02em; word-break: keep-all;">
+                <!-- Title adjusted for mobile (iPhone 11) to perfectly fit 2 lines -->
+                <h1 class="font-bold text-slate-900 tracking-tighter leading-[1.15]" style="font-size: clamp(28px, 8vw, 64px); letter-spacing: -0.02em; word-break: keep-all;">
                     데이터로 기획하고<br/>
                     <span class="text-blue-700">AI로 구현하다.</span>
                 </h1>
 
-                <!-- Subtitle explicitly broken into 2 lines for desktop -->
-                <p class="font-medium text-slate-600" style="font-size: clamp(15px, 1.8vw, 18px); line-height: 1.6; max-width: 800px; word-break: keep-all;">
-                    1.5년의 커머스 디렉팅 경험으로 제품 기획부터 마케팅까지 풀사이클을 주도하며,<br class="hidden md:block"/> 생성형 AI 파이프라인을 구축해 비용구조를 혁신적으로 개선합니다.
+                <!-- Subtitle explicitly broken into 2 lines for desktop, kept tight on mobile -->
+                <p class="font-medium text-slate-600 px-2" style="font-size: clamp(14px, 3.5vw, 18px); line-height: 1.6; max-width: 800px; word-break: keep-all;">
+                    1.5년의 커머스 디렉팅 경험으로 제품 기획부터 마케팅까지 풀사이클을 주도하며,<br class="hidden md:block"/> 생성형 AI 파이프라인을 구축해 비용구조를 혁신합니다.
                 </p>
 
                 <!-- Action Buttons -->
-                <div class="flex flex-col sm:flex-row items-center gap-4 mt-2">
-                    <a href="#products" class="flex flex-row items-center gap-2 px-8 py-4 rounded-full transition-all hover:scale-105" style="background: #1a1a1a; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; color: #FFFFFF; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);">
+                <div class="flex flex-col sm:flex-row items-center gap-3 md:gap-4 mt-2 w-full sm:w-auto px-4">
+                    <a href="#products" class="flex flex-row items-center justify-center gap-2 px-6 py-3.5 md:px-8 md:py-4 rounded-full transition-all hover:scale-105 w-full sm:w-auto text-sm md:text-[18px]" style="background: #1a1a1a; font-family: 'Inter', sans-serif; font-weight: 500; color: #FFFFFF; box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);">
                         포트폴리오 보기
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" class="md:w-5 md:h-5">
                             <path d="M7 10H13M13 10L10 7M13 10L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </a>
-                    <a href="#summary" class="px-8 py-4 rounded-full transition-all hover:scale-105" style="background: transparent; border: 1px solid #cbd5e0; font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 500; color: #1a1a1a;">
+                    <a href="#summary" class="px-6 py-3.5 md:px-8 md:py-4 rounded-full transition-all hover:scale-105 w-full sm:w-auto text-sm md:text-[18px]" style="background: transparent; border: 1px solid #cbd5e0; font-family: 'Inter', sans-serif; font-weight: 500; color: #1a1a1a;">
                         핵심 성과 지표
                     </a>
                 </div>
@@ -187,128 +193,128 @@
         </div>
 
         <!-- Program Cards Carousel (Reduced Size & Spacing) -->
-        <div class="relative z-10 w-full overflow-hidden fade-in visible" style="padding-top: 40px; padding-bottom: 40px;">
+        <div class="relative z-10 w-full overflow-hidden fade-in visible py-8 md:py-10">
             <!-- Gradient Overlays -->
-            <div class="absolute left-0 top-0 bottom-0 z-20 pointer-events-none" style="width: 100px; background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);"></div>
-            <div class="absolute right-0 top-0 bottom-0 z-20 pointer-events-none" style="width: 100px; background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);"></div>
+            <div class="absolute left-0 top-0 bottom-0 z-20 pointer-events-none w-12 md:w-[100px]" style="background: linear-gradient(90deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);"></div>
+            <div class="absolute right-0 top-0 bottom-0 z-20 pointer-events-none w-12 md:w-[100px]" style="background: linear-gradient(270deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%);"></div>
 
             <!-- Scrolling Container -->
             <div class="scroll-track">
                 <!-- Group 1 -->
-                <div class="flex gap-4 pr-4 pl-4">
+                <div class="flex gap-3 md:gap-4 pr-3 md:pr-4 pl-3 md:pl-4">
                     <div class="program-card">
                         <img src="https://i.ibb.co/kVnjthjz/0828-2094-3.png" alt="브랜딩" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">브랜딩</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">브랜딩</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/dqcvVrd/58-74-3.png" alt="제품 디자인" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 디자인</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">제품 디자인</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/9kTd4znb/a-76-1.png" alt="제품 연출" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 연출</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">제품 연출</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/mfjsk7S/a-106-1.png" alt="광고 컨텐츠 제작" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Content</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">광고 컨텐츠 제작</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Content</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">광고 컨텐츠 제작</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/mF4Jj8Zm/image-2462.png" alt="제품 디자인" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 디자인</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">제품 디자인</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/vvRHdLM8/55-1.png" alt="제품 연출" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 연출</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">제품 연출</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/rKnBVcyV/Group-2614.png" alt="브랜딩" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">브랜딩</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">브랜딩</h3>
                         </div>
                     </div>
                 </div>
                 <!-- Group 2 (Clone for infinite effect) -->
-                <div class="flex gap-4 pr-4">
+                <div class="flex gap-3 md:gap-4 pr-3 md:pr-4">
                     <div class="program-card">
                         <img src="https://i.ibb.co/kVnjthjz/0828-2094-3.png" alt="브랜딩" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">브랜딩</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">브랜딩</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/dqcvVrd/58-74-3.png" alt="제품 디자인" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 디자인</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">제품 디자인</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/9kTd4znb/a-76-1.png" alt="제품 연출" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 연출</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">제품 연출</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/mfjsk7S/a-106-1.png" alt="광고 컨텐츠 제작" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Content</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">광고 컨텐츠 제작</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Content</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">광고 컨텐츠 제작</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/mF4Jj8Zm/image-2462.png" alt="제품 디자인" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 디자인</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Design</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">제품 디자인</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/vvRHdLM8/55-1.png" alt="제품 연출" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">제품 연출</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Product</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">제품 연출</h3>
                         </div>
                     </div>
                     <div class="program-card">
                         <img src="https://i.ibb.co/rKnBVcyV/Group-2614.png" alt="브랜딩" class="w-full h-full object-cover">
                         <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 100%);"></div>
-                        <div class="absolute bottom-0 left-0 right-0 p-5 flex flex-col gap-1">
-                            <span class="font-inter text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
-                            <h3 class="font-inter text-xl font-semibold text-white leading-snug">브랜딩</h3>
+                        <div class="absolute bottom-0 left-0 right-0 p-4 md:p-5 flex flex-col gap-0.5 md:gap-1">
+                            <span class="font-inter text-[8px] md:text-[10px] font-medium text-white/80 uppercase tracking-widest">Brand</span>
+                            <h3 class="font-inter text-sm md:text-xl font-semibold text-white leading-snug">브랜딩</h3>
                         </div>
                     </div>
                 </div>
@@ -317,15 +323,15 @@
     </section>
 
     <!-- SECTION: Interactive Mindmap -->
-    <section id="mindmap" class="py-24 bg-gray-50 border-y border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-12 fade-in">
+    <section id="mindmap" class="py-16 md:py-24 bg-gray-50 border-y border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-8 md:mb-12 gap-4 fade-in">
                 <div>
-                    <div class="text-blue-accent font-bold text-sm tracking-widest uppercase mb-2">MD CORE SYSTEM</div>
-                    <h2 class="text-4xl font-black tracking-tighter uppercase">역량 체계도.</h2>
+                    <div class="text-blue-accent font-bold text-xs md:text-sm tracking-widest uppercase mb-2">MD CORE SYSTEM</div>
+                    <h2 class="text-3xl md:text-4xl font-black tracking-tighter uppercase">역량 체계도.</h2>
                 </div>
-                <div class="hidden md:block text-right">
-                    <p class="text-xs text-slate-400 font-bold uppercase leading-relaxed">캔버스를 드래그하여 탐색하고<br/>노드를 클릭하여 세부 역량을 확인하세요.</p>
+                <div class="text-left md:text-right">
+                    <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase leading-relaxed">캔버스를 드래그하여 탐색하고<br/>노드를 클릭하여 세부 역량을 확인하세요.</p>
                 </div>
             </div>
             
@@ -338,29 +344,29 @@
     </section>
 
     <!-- SECTION 01: Executive Summary -->
-    <section id="summary" class="py-24 bg-white border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16 fade-in">
-                <div class="text-blue-accent font-bold text-sm tracking-widest uppercase mb-2">Performance Intelligence</div>
-                <h2 class="text-4xl font-black tracking-tighter uppercase">퍼포먼스 대시보드.</h2>
+    <section id="summary" class="py-16 md:py-24 bg-white border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="mb-10 md:mb-16 fade-in">
+                <div class="text-blue-accent font-bold text-xs md:text-sm tracking-widest uppercase mb-2">Performance Intelligence</div>
+                <h2 class="text-3xl md:text-4xl font-black tracking-tighter uppercase">퍼포먼스 대시보드.</h2>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 fade-in">
                 <!-- Card 1: ROAS -->
                 <div class="kpi-card">
                     <div>
                         <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">광고 수익률 (ROAS)</p>
-                        <p class="text-3xl font-black tracking-tighter text-blue-600">180~200%</p>
+                        <p class="text-2xl md:text-3xl font-black tracking-tighter text-blue-600">180~200%</p>
                     </div>
                     <div class="chart-container"><canvas id="dashRoasChart"></canvas></div>
                 </div>
                 
                 <!-- Card 2: Conversion -->
                 <div class="kpi-card flex flex-col items-center justify-center text-center">
-                    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">평균 구매 전환율 (CVR)</p>
+                    <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2 md:mb-4">평균 구매 전환율 (CVR)</p>
                     <div class="flex-grow flex flex-col items-center justify-center">
-                        <p class="text-7xl font-black tracking-tighter text-slate-900 leading-none">4.0<span class="text-2xl ml-1">%</span></p>
-                        <div class="mt-6 px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-black uppercase tracking-widest border border-blue-100">
+                        <p class="text-5xl md:text-7xl font-black tracking-tighter text-slate-900 leading-none">4.0<span class="text-xl md:text-2xl ml-1">%</span></p>
+                        <div class="mt-4 px-3 py-1 bg-blue-50 text-blue-600 text-[10px] font-black uppercase tracking-widest border border-blue-100 rounded-sm">
                             업계 상위 5% 수준
                         </div>
                     </div>
@@ -370,7 +376,7 @@
                 <div class="kpi-card bg-slate-900">
                     <div>
                         <p class="text-[10px] font-bold uppercase tracking-widest text-blue-400 mb-1">콘텐츠 제작비 절감</p>
-                        <p class="text-3xl font-black tracking-tighter text-white">-80%</p>
+                        <p class="text-2xl md:text-3xl font-black tracking-tighter text-white">-80%</p>
                     </div>
                     <div class="chart-container"><canvas id="dashCostChart"></canvas></div>
                 </div>
@@ -380,7 +386,7 @@
                     <div class="h-full flex flex-col justify-between">
                         <div>
                             <p class="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">포트폴리오 가치</p>
-                            <p class="text-xl font-black tracking-tighter leading-tight">데이터 기반<br/>하이엔드 퍼포먼스</p>
+                            <p class="text-lg md:text-xl font-black tracking-tighter leading-tight">데이터 기반<br/>하이엔드 퍼포먼스</p>
                         </div>
                         <div class="space-y-2 mt-4">
                             <div class="flex justify-between text-[10px] font-bold border-b pb-1">
@@ -399,64 +405,64 @@
     </section>
 
     <!-- SECTION 02: Product Showcase -->
-    <section id="products" class="py-32 relative bg-slate-50 border-b border-gray-100 overflow-hidden">
+    <section id="products" class="py-16 md:py-32 relative bg-slate-50 border-b border-gray-100 overflow-hidden">
         <!-- Decorative background mesh -->
         <div class="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
             <div class="absolute top-[-10%] right-[-5%] w-[40%] h-[40%] rounded-full bg-blue-600/5 blur-3xl"></div>
             <div class="absolute bottom-[-10%] left-[-5%] w-[40%] h-[40%] rounded-full bg-indigo-600/5 blur-3xl"></div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6 fade-in">
+        <div class="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-4 md:gap-6 fade-in">
                 <div>
-                    <div class="flex items-center gap-3 mb-3">
-                        <div class="text-blue-accent font-bold text-sm tracking-widest uppercase">주요 프로젝트</div>
-                        <span class="px-3 py-1 bg-blue-100 text-blue-700 text-[10px] font-black uppercase tracking-widest rounded-full animate-pulse border border-blue-200">
+                    <div class="flex items-center gap-3 mb-2 md:mb-3">
+                        <div class="text-blue-accent font-bold text-xs md:text-sm tracking-widest uppercase">주요 프로젝트</div>
+                        <span class="px-2 py-1 md:px-3 bg-blue-100 text-blue-700 text-[9px] md:text-[10px] font-black uppercase tracking-widest rounded-full animate-pulse border border-blue-200">
                             Click Cards ✨
                         </span>
                     </div>
-                    <h2 class="text-4xl md:text-5xl font-black tracking-tighter uppercase text-slate-900">Product Center.</h2>
-                    <p class="mt-4 text-slate-500 font-medium max-w-lg leading-relaxed text-sm md:text-base">
+                    <h2 class="text-3xl md:text-5xl font-black tracking-tighter uppercase text-slate-900">Product Center.</h2>
+                    <p class="mt-3 md:mt-4 text-slate-500 font-medium max-w-lg leading-relaxed text-xs md:text-base break-keep">
                         기획부터 실행까지, 전 과정을 주도적으로 이끌어낸 핵심 프로젝트입니다. <br class="hidden md:block"/>
                         <strong class="text-blue-600 font-bold">각 제품 카드를 클릭</strong>하여 상세한 기획 과정과 결과물을 확인해 보세요.
                     </p>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="productGrid">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="productGrid">
                 <!-- Products via JS -->
             </div>
         </div>
     </section>
 
     <!-- SECTION 03: Design & Content Portfolio -->
-    <section id="design-portfolio" class="py-24 bg-white">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-16 fade-in">
+    <section id="design-portfolio" class="py-16 md:py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 md:px-6">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16 gap-4 fade-in">
                 <div>
-                    <div class="text-blue-accent font-bold text-sm tracking-widest uppercase mb-2">디자인 & 콘텐츠 역량</div>
-                    <h2 class="text-4xl font-black tracking-tighter uppercase">Creative Archive.</h2>
+                    <div class="text-blue-accent font-bold text-xs md:text-sm tracking-widest uppercase mb-2">디자인 & 콘텐츠 역량</div>
+                    <h2 class="text-3xl md:text-4xl font-black tracking-tighter uppercase">Creative Archive.</h2>
                 </div>
-                <div class="hidden md:block text-right">
-                    <p class="text-xs text-slate-400 font-bold uppercase leading-relaxed">기획부터 디자인, AI 생성까지<br/>직접 주도한 결과물입니다.</p>
+                <div class="text-left md:text-right">
+                    <p class="text-[10px] md:text-xs text-slate-400 font-bold uppercase leading-relaxed">기획부터 디자인, AI 생성까지<br/>직접 주도한 결과물입니다.</p>
                 </div>
             </div>
 
             <!-- Filter Buttons -->
-            <div class="flex flex-wrap gap-4 mb-12 fade-in" id="portfolio-filters">
-                <button class="filter-btn active px-6 py-2 rounded-full text-sm font-bold bg-slate-900 text-white transition-colors" data-filter="all">All</button>
-                <button class="filter-btn px-6 py-2 rounded-full text-sm font-bold bg-gray-100 text-slate-600 hover:bg-gray-200 transition-colors" data-filter="photo">제품 사진</button>
-                <button class="filter-btn px-6 py-2 rounded-full text-sm font-bold bg-gray-100 text-slate-600 hover:bg-gray-200 transition-colors" data-filter="ad">광고 컨텐츠 제작</button>
-                <button class="filter-btn px-6 py-2 rounded-full text-sm font-bold bg-gray-100 text-slate-600 hover:bg-gray-200 transition-colors" data-filter="logo">브랜드 로고</button>
+            <div class="flex flex-wrap gap-2 md:gap-4 mb-8 md:mb-12 fade-in" id="portfolio-filters">
+                <button class="filter-btn active px-4 py-1.5 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold bg-slate-900 text-white transition-colors" data-filter="all">All</button>
+                <button class="filter-btn px-4 py-1.5 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold bg-gray-100 text-slate-600 hover:bg-gray-200 transition-colors" data-filter="photo">제품 사진</button>
+                <button class="filter-btn px-4 py-1.5 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold bg-gray-100 text-slate-600 hover:bg-gray-200 transition-colors" data-filter="ad">광고 컨텐츠 제작</button>
+                <button class="filter-btn px-4 py-1.5 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold bg-gray-100 text-slate-600 hover:bg-gray-200 transition-colors" data-filter="logo">브랜드 로고</button>
             </div>
 
             <!-- Masonry Grid for Design Items -->
-            <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6" id="designGrid">
+            <div class="columns-1 sm:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6" id="designGrid">
                 <!-- Items via JS -->
             </div>
 
             <!-- Pagination Controls -->
-            <div id="pagination-controls" class="flex flex-wrap justify-center gap-2 mt-12 fade-in visible" style="display: none;">
+            <div id="pagination-controls" class="flex flex-wrap justify-center gap-2 mt-8 md:mt-12 fade-in visible" style="display: none;">
                 <!-- Pagination Buttons via JS -->
             </div>
         </div>
@@ -464,37 +470,37 @@
 
     <!-- Product Intelligence Modal -->
     <div id="productModal" class="fixed inset-0 z-[100] hidden">
-        <div class="absolute inset-0 bg-slate-900/40 modal-backdrop" onclick="closeModal()"></div>
+        <div class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm modal-backdrop" onclick="closeModal()"></div>
         <div class="absolute right-0 top-0 bottom-0 w-full lg:w-[750px] bg-white shadow-2xl overflow-y-auto translate-x-full transition-transform duration-500 ease-in-out" id="modalContent">
             
             <!-- Modal Header -->
-            <div class="sticky top-0 bg-white z-10 p-8 border-b flex justify-between items-center">
+            <div class="sticky top-0 bg-white z-10 p-6 md:p-8 border-b flex justify-between items-center">
                 <div>
-                    <div id="modalCategory" class="text-blue-600 font-bold text-xs uppercase tracking-widest mb-1">LIVING</div>
-                    <h3 id="modalTitle" class="text-3xl font-black tracking-tighter uppercase leading-none">Product Title</h3>
+                    <div id="modalCategory" class="text-blue-600 font-bold text-[10px] md:text-xs uppercase tracking-widest mb-1">LIVING</div>
+                    <h3 id="modalTitle" class="text-2xl md:text-3xl font-black tracking-tighter uppercase leading-tight">Product Title</h3>
                 </div>
-                <button onclick="closeModal()" class="w-12 h-12 flex items-center justify-center bg-gray-100 hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors rounded-full">
-                    <span class="text-2xl font-light">✕</span>
+                <button onclick="closeModal()" class="w-10 h-10 md:w-12 md:h-12 flex flex-shrink-0 items-center justify-center bg-gray-100 hover:bg-red-50 text-slate-400 hover:text-red-500 transition-colors rounded-full ml-4">
+                    <span class="text-xl md:text-2xl font-light">✕</span>
                 </button>
             </div>
 
             <!-- Modal Body -->
-            <div class="p-8">
+            <div class="p-6 md:p-8">
                 <!-- 기획 주도 안내 배지 -->
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-700 text-xs font-bold rounded-full mb-6 border border-blue-100">
-                    <span class="w-2 h-2 rounded-full bg-blue-600"></span>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 bg-blue-50 text-blue-700 text-[10px] md:text-xs font-bold rounded-full mb-6 border border-blue-100">
+                    <span class="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-blue-600"></span>
                     기획과정 전 과정을 참여 및 주도했습니다.
                 </div>
 
-                <div id="modalThumb" class="aspect-video bg-gray-50 mb-10 overflow-hidden border border-gray-100 flex items-center justify-center rounded-xl">
+                <div id="modalThumb" class="aspect-video bg-gray-50 mb-8 md:mb-10 overflow-hidden border border-gray-100 flex items-center justify-center rounded-xl">
                     <!-- Thumbnail Injected Here -->
                 </div>
 
                 <!-- Tabs -->
-                <div class="flex border-b mb-8 overflow-x-auto no-scrollbar">
-                    <button onclick="switchTab('planning')" class="tab-btn active px-6 py-4 font-bold text-sm tracking-widest border-b-4 border-blue-600 text-blue-600 whitespace-nowrap">기획 과정</button>
-                    <button onclick="switchTab('detail')" class="tab-btn px-6 py-4 font-bold text-sm tracking-widest border-b-4 border-transparent text-slate-400 hover:text-slate-600 whitespace-nowrap">상세페이지</button>
-                    <button onclick="switchTab('package')" class="tab-btn px-6 py-4 font-bold text-sm tracking-widest border-b-4 border-transparent text-slate-400 hover:text-slate-600 whitespace-nowrap">패키지 디자인</button>
+                <div class="flex border-b mb-6 md:mb-8 overflow-x-auto no-scrollbar">
+                    <button onclick="switchTab('planning')" class="tab-btn active px-4 md:px-6 py-3 md:py-4 font-bold text-xs md:text-sm tracking-widest border-b-4 border-blue-600 text-blue-600 whitespace-nowrap">기획 과정</button>
+                    <button onclick="switchTab('detail')" class="tab-btn px-4 md:px-6 py-3 md:py-4 font-bold text-xs md:text-sm tracking-widest border-b-4 border-transparent text-slate-400 hover:text-slate-600 whitespace-nowrap">상세페이지</button>
+                    <button onclick="switchTab('package')" class="tab-btn px-4 md:px-6 py-3 md:py-4 font-bold text-xs md:text-sm tracking-widest border-b-4 border-transparent text-slate-400 hover:text-slate-600 whitespace-nowrap">패키지 디자인</button>
                 </div>
 
                 <!-- Tab: Planning Process -->
@@ -522,16 +528,16 @@
     </div>
 
     <!-- Footer -->
-    <footer class="bg-white border-t py-20 text-center">
+    <footer class="bg-white border-t py-12 md:py-20 text-center">
         <div class="max-w-7xl mx-auto px-6 flex flex-col items-center">
-            <div class="font-brand font-black text-2xl tracking-tighter uppercase mb-4">Commerce MD</div>
-            <p class="text-xs font-bold text-slate-400 tracking-widest uppercase mb-12">Full-Cycle Product Orchestration</p>
-            <div class="flex space-x-12 text-sm font-bold uppercase tracking-widest">
+            <div class="font-brand font-black text-xl md:text-2xl tracking-tighter uppercase mb-3 md:mb-4">Commerce MD</div>
+            <p class="text-[10px] md:text-xs font-bold text-slate-400 tracking-widest uppercase mb-8 md:mb-12">Full-Cycle Product Orchestration</p>
+            <div class="flex space-x-8 md:space-x-12 text-xs md:text-sm font-bold uppercase tracking-widest">
                 <a href="mailto:contact@example.com" class="hover:text-blue-600 transition">Email</a>
                 <a href="#" class="hover:text-blue-600 transition">LinkedIn</a>
                 <a href="#" class="hover:text-blue-600 transition">Resume</a>
             </div>
-            <div class="mt-20 text-[10px] text-slate-300 font-bold uppercase tracking-widest">© 2026 AI Native MD Portfolio</div>
+            <div class="mt-12 md:mt-20 text-[9px] md:text-[10px] text-slate-300 font-bold uppercase tracking-widest">© 2026 AI Native MD Portfolio</div>
         </div>
     </footer>
 
@@ -848,19 +854,19 @@
                 price: "₩27,900", 
                 img: "https://i.ibb.co/1tzwfWBC/Group-2826.png",
                 planning: `
-                    <div class="space-y-8 text-slate-700">
+                    <div class="space-y-6 md:space-y-8 text-slate-700">
                         <!-- Intro Header -->
-                        <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-100">
-                            <h4 class="font-black text-lg text-blue-800 mb-1">프리미엄 폼스프레이 주방세제</h4>
-                            <p class="text-xs font-bold text-blue-600 mb-3">(27,900원, 2025년 9월 출시)</p>
-                            <p class="text-sm font-medium text-slate-700 leading-relaxed">"손설거지 & 애벌세척 페인포인트를 공감형으로 해결한 풀사이클 기획 사례"</p>
+                        <div class="bg-blue-50/50 p-4 md:p-5 rounded-xl border border-blue-100">
+                            <h4 class="font-black text-base md:text-lg text-blue-800 mb-1">프리미엄 폼스프레이 주방세제</h4>
+                            <p class="text-[10px] md:text-xs font-bold text-blue-600 mb-2 md:mb-3">(27,900원, 2025년 9월 출시)</p>
+                            <p class="text-xs md:text-sm font-medium text-slate-700 leading-relaxed">"손설거지 & 애벌세척 페인포인트를 공감형으로 해결한 풀사이클 기획 사례"</p>
                         </div>
 
                         <!-- 01. 시장·트렌드 분석 & 페인포인트 발굴 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">01. 시장·트렌드 분석 & 페인포인트 발굴</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">01. 시장·트렌드 분석 & 페인포인트 발굴</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li><strong class="text-slate-700">AI 기반 트렌드 리서치:</strong> ChatGPT + Gemini + 웹 서치 활용, 주요 채널(네이버, 쿠팡, 메타, 인스타) 키워드·리뷰 조사.</li>
                                 <li>가격 경쟁이 치열한 일반 주방세제 시장에서 저가/대기업 제품과의 정면 대결 회피.</li>
                                 <li><strong class="text-blue-600">페인포인트 발굴:</strong> "손설거지 시 손·코 자극", "식세기 사용자들의 애벌세척 번거로움", "유아 식기·젖병 세척 시 안전성 걱정" 등 주부(엄마) 타겟 실사용 불만 집중 공략.</li>
@@ -868,10 +874,10 @@
                         </div>
 
                         <!-- 02. 기획 전략 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">02. 기획 전략: 옆구리 치기 + 공감형 제품</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">02. 기획 전략: 옆구리 치기 + 공감형 제품</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li>기존 제품 단순 복제가 아닌 <strong class="text-slate-700">"기존 주방세제의 불편함을 디벨롭"</strong>하는 방향 선택.</li>
                                 <li><strong class="text-slate-700">폼스프레이 전환:</strong> 뿌리기만 하면 거품이 착 붙어 문지르기 최소화.</li>
                                 <li><strong class="text-blue-600">핵심 차별점:</strong> "코·눈 자극 없는 거품 스프레이" (기존 폼스프레이 제품들의 최대 단점 해결).</li>
@@ -880,10 +886,10 @@
                         </div>
 
                         <!-- 03. 실행 과정 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">03. 실행 과정</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400 mb-4">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">03. 실행 과정</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400 mb-4">
                                 <li><strong class="text-slate-700">트리거 개발:</strong> 국내외 벤더 10여 곳 샘플링 → 직접 사용 테스트 후 코 자극 최소화 & 쫀쫀한 거품 유지 트리거 선정.</li>
                                 <li><strong class="text-slate-700">패키지 전략:</strong> 단독 스프레이 사용 시 불편함 보완을 위해 스프레이 + 기존 펌핑 세제 세트 구성 (객단가 및 광고 효율 상승).</li>
                                 <li><strong class="text-slate-700">비주얼 & 콘텐츠:</strong> AI(Photoshop Gen Fill/Expand, Midjourney) 자체 제작 → 촬영비 절감 및 프리미엄 무드 강조.</li>
@@ -891,15 +897,15 @@
                             </ul>
                             <div class="mt-4 rounded-xl overflow-hidden border border-gray-100 shadow-sm">
                                 <img src="https://i.ibb.co/G3krJxqY/Frame-936.png" alt="수세미 제작 과정" class="w-full h-auto">
-                                <p class="text-center text-xs text-slate-400 p-2 bg-gray-50 font-medium">부속품(수세미) 자체 기획 및 제작 과정</p>
+                                <p class="text-center text-[10px] md:text-xs text-slate-400 p-2 bg-gray-50 font-medium">부속품(수세미) 자체 기획 및 제작 과정</p>
                             </div>
                         </div>
 
                         <!-- 04. 성과 & 지표 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">04. 성과 & 지표</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">04. 성과 & 지표</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li>메타 단독 운영, 광고비 2,000만 원 투입 → <strong class="text-blue-600">ROAS 180~200% 장기 유지</strong>.</li>
                                 <li>누적 매출 3,600만 원 (출시 5~6개월, 약 1,290세트).</li>
                                 <li>전환율 3~4% 안정 유지 및 리뷰 245개 확보.</li>
@@ -908,10 +914,10 @@
                         </div>
 
                         <!-- 05. 배운 점 & 키워드 -->
-                        <div class="relative pl-6 border-l-2 border-transparent">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-transparent">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">05. 배운 점 & 핵심 키워드</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">05. 배운 점 & 핵심 키워드</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li><strong class="text-slate-700">풀사이클 상품기획:</strong> 시장 분석 → 페인포인트 → 전략 → 실행 → 최적화 전 과정 주도.</li>
                                 <li><strong class="text-slate-700">AI 업무 혁신:</strong> AI 활용으로 비용 절감 및 속도 향상 (비주얼 제작, 트렌드 리서치).</li>
                                 <li><strong class="text-blue-600">핵심 레슨:</strong> 작은 브랜드라도 "공감 + 문제 해결" 중심이면 프리미엄 가격대에서도 ROAS 확보가 가능함을 증명.</li>
@@ -940,19 +946,19 @@
                 price: "₩22,900", 
                 img: "https://i.ibb.co/B28MnKDc/Frame-4.png",
                 planning: `
-                    <div class="space-y-8 text-slate-700">
+                    <div class="space-y-6 md:space-y-8 text-slate-700">
                         <!-- Intro Header -->
-                        <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-100">
-                            <h4 class="font-black text-lg text-blue-800 mb-1">스퀴지브레드 – 빵 모양 셀룰로오스 행주</h4>
-                            <p class="text-xs font-bold text-blue-600 mb-3">(초기 발주 500만원, 디자인·콘텐츠 주도 기획)</p>
-                            <p class="text-sm font-medium text-slate-700 leading-relaxed">"틱톡·릴스 바이럴 콘텐츠 + 귀여운 비주얼로 저비용 브랜드 이미지 스큐업 사례"</p>
+                        <div class="bg-blue-50/50 p-4 md:p-5 rounded-xl border border-blue-100">
+                            <h4 class="font-black text-base md:text-lg text-blue-800 mb-1">스퀴지브레드 – 빵 모양 셀룰로오스 행주</h4>
+                            <p class="text-[10px] md:text-xs font-bold text-blue-600 mb-2 md:mb-3">(초기 발주 500만원, 디자인·콘텐츠 주도 기획)</p>
+                            <p class="text-xs md:text-sm font-medium text-slate-700 leading-relaxed">"틱톡·릴스 바이럴 콘텐츠 + 귀여운 비주얼로 저비용 브랜드 이미지 스큐업 사례"</p>
                         </div>
 
                         <!-- 01. 시장·트렌드 분석 & 페인포인트 발굴 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">01. 시장·트렌드 분석 & 페인포인트 발굴</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">01. 시장·트렌드 분석 & 페인포인트 발굴</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li><strong class="text-slate-700">트렌드 포착:</strong> 릴스/틱톡 기반 셀룰로오스 행주의 물 흡수·부푸는 영상 대량 바이럴 관찰 (흡수력·건조속도·친환경이 핵심 후킹 포인트).</li>
                                 <li><strong class="text-slate-700">이전 브랜드 경험:</strong> 롤행주 판매 시 잘 팔렸으나 품질 만족도가 낮고 바이럴 콘텐츠 생성이 약하다는 한계 확인.</li>
                                 <li><strong class="text-blue-600">인사이트 도출:</strong> 가격 경쟁이 치열한 행주 시장에서 <strong class="text-slate-700">"사고 싶은(귀엽고 예쁜) 행주"</strong>가 부재함을 발견 → 비주얼과 흡수 콘텐츠로 차별화 가능성 확인.</li>
@@ -961,10 +967,10 @@
                         </div>
 
                         <!-- 02. 기획 전략 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">02. 기획 전략: 바이럴 비주얼 중심</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">02. 기획 전략: 바이럴 비주얼 중심</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li><strong class="text-slate-700">컨셉 매칭:</strong> 물을 머금고 부푸는 셀룰로오스 소재의 특성에서 오븐 속 빵을 연상 → <strong class="text-blue-600">빵 모양 행주 컨셉</strong> 최종 채택.</li>
                                 <li>소재 특유의 공기구멍 질감이 실제 빵 식감과 유사하여 자연스러운 비주얼 매칭 성공.</li>
                                 <li><strong class="text-slate-700">핵심 타겟:</strong> 20~40대 여성 (주부, 자취생, 캠핑족) → 귀여움, 실용성, 친환경 3가지 요소 어필.</li>
@@ -973,39 +979,39 @@
                         </div>
 
                         <!-- 03. 실행 과정 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">03. 실행 과정</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400 mb-4">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">03. 실행 과정</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400 mb-4">
                                 <li><strong class="text-slate-700">디자인 개발:</strong> 시행착오 끝에 트렌디한 빵 종류 4종(말차식빵, 우유식빵, 사워도우 등) 선정.</li>
                                 <li><strong class="text-slate-700">비주얼 100% 자체 제작:</strong> Midjourney 등 AI 이미지 생성 툴과 직접 일러스트 작업을 병행하여 촬영 및 외주 비용 0원 달성.</li>
                                 <li><strong class="text-slate-700">콘텐츠 방향:</strong> 물을 흡수하며 부풀어 오르는 ASMR 영상과 귀여운 빵 비주얼을 극대화하여 숏폼 최적화 진행.</li>
                             </ul>
                             <!-- Design Images -->
-                            <div class="grid grid-cols-2 gap-4 mt-4 mb-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 mb-4">
                                 <div class="rounded-xl overflow-hidden border border-gray-100 shadow-sm flex flex-col">
-                                    <img src="https://i.ibb.co/Hf4tMmhZ/image-2835.png" alt="초기 디자인 1" class="w-full h-40 object-cover">
+                                    <img src="https://i.ibb.co/Hf4tMmhZ/image-2835.png" alt="초기 디자인 1" class="w-full h-32 md:h-40 object-cover">
                                     <p class="text-center text-[10px] text-slate-400 p-2 bg-gray-50 font-medium">Midjourney & 일러스트 활용 빵 패턴 기획</p>
                                 </div>
                                 <div class="rounded-xl overflow-hidden border border-gray-100 shadow-sm flex flex-col">
-                                    <img src="https://i.ibb.co/xSsdQqsm/IMG-1188-2-1.png" alt="초기 디자인 2" class="w-full h-40 object-cover">
+                                    <img src="https://i.ibb.co/xSsdQqsm/IMG-1188-2-1.png" alt="초기 디자인 2" class="w-full h-32 md:h-40 object-cover">
                                     <p class="text-center text-[10px] text-slate-400 p-2 bg-gray-50 font-medium">부푸는 형태를 고려한 실물 테스트 가안</p>
                                 </div>
                             </div>
                             <!-- Video Embed -->
                             <div class="mt-4 rounded-xl overflow-hidden border border-gray-100 shadow-sm bg-black">
-                                <div class="relative w-full h-[400px]">
+                                <div class="relative w-full h-[300px] md:h-[400px]">
                                     <iframe src="https://streamable.com/e/22c8hx?autoplay=1&nocontrols=1&loop=1&muted=1" frameborder="0" width="100%" height="100%" allowfullscreen style="width:100%;height:100%;position:absolute;left:0px;top:0px;overflow:hidden;"></iframe>
                                 </div>
-                                <p class="text-center text-xs text-slate-300 p-2 bg-slate-900 font-medium tracking-wide">직접 제작한 빵 모양 행주 후킹 콘텐츠 (메타/틱톡 바이럴용)</p>
+                                <p class="text-center text-[10px] md:text-xs text-slate-300 p-2 bg-slate-900 font-medium tracking-wide">직접 제작한 빵 모양 행주 후킹 콘텐츠 (메타/틱톡 바이럴용)</p>
                             </div>
                         </div>
 
                         <!-- 04. 기대 효과 & 학습점 -->
-                        <div class="relative pl-6 border-l-2 border-transparent">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-transparent">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">04. 기대 효과 & 학습점</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">04. 기대 효과 & 학습점</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li>소자본(500만 원) 투자로 브랜드 제품 라인업을 다각화하고 친환경 및 귀여움 이미지를 성공적으로 구축.</li>
                                 <li><strong class="text-slate-700">바이럴 잠재력:</strong> 디자인 차별화가 부족한 기존 시장에서 '빵 모양'이라는 시각적 후킹 요소로 릴스 조회수 및 전환 기대치가 매우 높음.</li>
                                 <li><strong class="text-blue-600">핵심 레슨:</strong> 이전 경험을 살린 시장 트렌드 읽기를 통해 "작은 예산으로도 큰 임팩트"를 만들 수 있음을 증명. 콘텐츠/비주얼 주도 상품기획의 강력함 확인.</li>
@@ -1030,19 +1036,19 @@
                 price: "₩21,900", 
                 img: "https://i.ibb.co/Rkfy7zFn/c96ad52c-b5b0-459c-9808-958d09acedd9.png",
                 planning: `
-                    <div class="space-y-8 text-slate-700">
+                    <div class="space-y-6 md:space-y-8 text-slate-700">
                         <!-- Intro Header -->
-                        <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-100">
-                            <h4 class="font-black text-lg text-blue-800 mb-1">안전·편의 겸비 프리미엄 액상 세탁세제</h4>
-                            <p class="text-xs font-bold text-blue-600 mb-3">(21,900원, 출시 준비 완료)</p>
-                            <p class="text-sm font-medium text-slate-700 leading-relaxed">"캡슐의 편리함 + 액상의 안전성을 결합한 역포지셔닝 사례 – 잔여물 공포 해결 + 엄마 타겟 공략"</p>
+                        <div class="bg-blue-50/50 p-4 md:p-5 rounded-xl border border-blue-100">
+                            <h4 class="font-black text-base md:text-lg text-blue-800 mb-1">안전·편의 겸비 프리미엄 액상 세탁세제</h4>
+                            <p class="text-[10px] md:text-xs font-bold text-blue-600 mb-2 md:mb-3">(21,900원, 출시 준비 완료)</p>
+                            <p class="text-xs md:text-sm font-medium text-slate-700 leading-relaxed">"캡슐의 편리함 + 액상의 안전성을 결합한 역포지셔닝 사례 – 잔여물 공포 해결 + 엄마 타겟 공략"</p>
                         </div>
 
                         <!-- 01. 시장 분석 & 가설 설정 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">01. 시장 분석 & 가설 설정 (Meta 최적화)</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">01. 시장 분석 & 가설 설정 (Meta 최적화)</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li><strong class="text-slate-700">AI 트렌드 리서치:</strong> NotebookLM, ChatGPT 활용. 세탁세제 시장이 '캡슐(편리)' vs '아기세제(안전)'로 양분된 구조 확인.</li>
                                 <li><strong class="text-slate-700">가설 설정:</strong> 저관여 제품은 타겟이 모호하면 외면당함 → 니즈가 확실한 엄마 타겟 집중.</li>
                                 <li><strong class="text-blue-600">포지셔닝 전략:</strong> 캡슐의 치명적 약점(잔여물·미세플라스틱 공포)을 자극, "가장 안전한 액상형이지만 캡슐만큼 편한" 역포지셔닝 유도.</li>
@@ -1051,10 +1057,10 @@
                         </div>
 
                         <!-- 02. 페인포인트 해결 & 경쟁력 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">02. 페인포인트 해결 & 제품 경쟁력</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">02. 페인포인트 해결 & 제품 경쟁력</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li><strong class="text-slate-700">안전성:</strong> 맘가이드 A등급, 99% 자연유래, 알러젠 프리 → 아기세제급 스펙 확보.</li>
                                 <li><strong class="text-slate-700">편의성:</strong> 원터치 계량캡 도입으로 기존 액상세제의 불편함(무거움, 흘림) 해결.</li>
                                 <li><strong class="text-slate-700">확장성:</strong> 본품(1L) + 얼룩제거제 용기 세트 구성으로 활용도 및 객단가 상승.</li>
@@ -1062,10 +1068,10 @@
                         </div>
 
                         <!-- 03. 생산·운영 & 전략 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">03. 생산·운영 & 향 전략</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">03. 생산·운영 & 향 전략</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li><strong class="text-slate-700">충진/User Flow:</strong> 누액 리스크 방지 위해 리필팩(1.2L) 충진 제안. 1L 본품 충진 후 남은 200ml는 얼룩제거제 용기에 소분 유도.</li>
                                 <li><strong class="text-slate-700">향 라인업:</strong> 선(先) 무향 출시 → 후(後) 유향 확장 전략.</li>
                                 <li>아기세제 시장의 무향 선호도(80%) 공략, 무향으로 A/B 테스트 후 시그니처 향 개발 및 섬유유연제 라인업 연결.</li>
@@ -1073,17 +1079,17 @@
                         </div>
 
                         <!-- 04. 마케팅 & 마감 -->
-                        <div class="relative pl-6 border-l-2 border-transparent">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-transparent">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">04. 마케팅 전략 & 기획 완료</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400 mb-4">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">04. 마케팅 전략 & 기획 완료</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400 mb-4">
                                 <li><strong class="text-slate-700">가격 허들 극복:</strong> 스타터 세트(얼룩제거제 용기 증정)로 체감 가치 극대화. CRM 통한 사용 주기 맞춤 리필팩 재구매 알림.</li>
                                 <li><strong class="text-slate-700">타겟 확장:</strong> 메타 중심 엄마 타겟에서 성인 여성 라이프스타일(혈흔, 민감성 피부)로 점진적 확장.</li>
                                 <li><strong class="text-blue-600">완료 상태:</strong> 원가 조정, 판매가 옵션, 스펙, 콘텐츠·디자인(AI 100% 비주얼 제작) 완료.</li>
                             </ul>
                             <div class="mt-4 rounded-xl overflow-hidden border border-gray-100 shadow-sm">
                                 <img src="https://i.ibb.co/ZpNhcyh9/Group-3110.png" alt="초기 패키지 디자인 가안" class="w-full h-auto">
-                                <p class="text-center text-xs text-slate-400 p-2 bg-gray-50 font-medium">초기 패키지 디자인 가안</p>
+                                <p class="text-center text-[10px] md:text-xs text-slate-400 p-2 bg-gray-50 font-medium">초기 패키지 디자인 가안</p>
                             </div>
                         </div>
                     </div>
@@ -1104,19 +1110,19 @@
                 price: "₩19,800", 
                 img: "https://i.ibb.co/ynrQQkFg/1.png",
                 planning: `
-                    <div class="space-y-8 text-slate-700">
+                    <div class="space-y-6 md:space-y-8 text-slate-700">
                         <!-- Intro Header -->
-                        <div class="bg-blue-50/50 p-5 rounded-xl border border-blue-100">
-                            <h4 class="font-black text-lg text-blue-800 mb-1">데오도란트 티슈 – 카드지갑 휴대형 아트 패키지</h4>
-                            <p class="text-xs font-bold text-blue-600 mb-3">(해외 타겟, 디자인 전반 주도)</p>
-                            <p class="text-sm font-medium text-slate-700 leading-relaxed">"저비용 인하우스 디자인으로 프리미엄 휴대성을 극대화한 그래픽 하이브리드 사례"</p>
+                        <div class="bg-blue-50/50 p-4 md:p-5 rounded-xl border border-blue-100">
+                            <h4 class="font-black text-base md:text-lg text-blue-800 mb-1">데오도란트 티슈 – 카드지갑 휴대형 아트 패키지</h4>
+                            <p class="text-[10px] md:text-xs font-bold text-blue-600 mb-2 md:mb-3">(해외 타겟, 디자인 전반 주도)</p>
+                            <p class="text-xs md:text-sm font-medium text-slate-700 leading-relaxed">"저비용 인하우스 디자인으로 프리미엄 휴대성을 극대화한 그래픽 하이브리드 사례"</p>
                         </div>
 
                         <!-- 01. 기획 의도 & 타겟 인사이트 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">01. 기획 의도 & 타겟 인사이트</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">01. 기획 의도 & 타겟 인사이트</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li><strong class="text-slate-700">타겟 설정:</strong> 해외 타겟(특히 여행·출장족) 중심. "주머니에서 꺼내도 부끄럽지 않은, 카드지갑에 쏙 들어가는 티슈" 목표.</li>
                                 <li><strong class="text-slate-700">기존 문제점:</strong> 크기가 크고 포장이 투박하여 휴대 시 불편하고 시각적으로 저가 느낌을 줌.</li>
                                 <li><strong class="text-blue-600">솔루션:</strong> 신용카드 규격 수준으로 축소하여 일상 휴대성을 극대화하고, 디자인으로 프리미엄 포지셔닝 구축.</li>
@@ -1124,10 +1130,10 @@
                         </div>
 
                         <!-- 02. 디자인 전략 & 키비주얼 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">02. 디자인 전략 & 키비주얼</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">02. 디자인 전략 & 키비주얼</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li><strong class="text-slate-700">키비주얼:</strong> 패키지 전면부에 미켈란젤로 ‘천지창조’의 맞닿는 손 모티브 + 암술·수술(남녀 연결) 상징 + 벌 조합.</li>
                                 <li><strong class="text-slate-700">컨셉:</strong> 성별·문화를 초월하는 아름다움과 데오도란트의 본질(신선함·깔끔함)을 "자연스러운 연결과 신선함"으로 전달.</li>
                                 <li><strong class="text-blue-600">개발 과정:</strong> AI 이미지 생성으로 초기 벌 모티브 제작 → Illustrator로 직접 디벨롭하여 최종 일러스트 완성.</li>
@@ -1135,25 +1141,25 @@
                         </div>
 
                         <!-- 03. 실행 과정 -->
-                        <div class="relative pl-6 border-l-2 border-blue-200">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-blue-200">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">03. 실행 과정</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400 mb-4">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">03. 실행 과정</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400 mb-4">
                                 <li><strong class="text-slate-700">인하우스 주도:</strong> 촬영, 디자인, 패키지 전 과정을 100% 직접 수행.</li>
                                 <li><strong class="text-slate-700">비용 효율화:</strong> AI 활용 및 외주 최소화로 촬영+디자인 총 150만 원 이내로 마무리.</li>
                                 <li><strong class="text-slate-700">작업 범위:</strong> 키비주얼 일러스트, 패키지 레이아웃, Mockup 제작, 제품 사진 촬영까지 전담.</li>
                             </ul>
                             <div class="mt-4 rounded-xl overflow-hidden border border-gray-100 shadow-sm">
                                 <img src="https://i.ibb.co/8LDschwQ/Frame-4.png" alt="패키지 디자인 기획 과정" class="w-full h-auto">
-                                <p class="text-center text-xs text-slate-400 p-2 bg-gray-50 font-medium">패키지 디자인 기획 및 스케치 과정</p>
+                                <p class="text-center text-[10px] md:text-xs text-slate-400 p-2 bg-gray-50 font-medium">패키지 디자인 기획 및 스케치 과정</p>
                             </div>
                         </div>
 
                         <!-- 04. 기대 효과 & 학습점 -->
-                        <div class="relative pl-6 border-l-2 border-transparent">
+                        <div class="relative pl-5 md:pl-6 border-l-2 border-transparent">
                             <div class="absolute -left-[9px] top-1 w-4 h-4 rounded-full bg-blue-600 border-4 border-white"></div>
-                            <h5 class="font-bold text-lg mb-3 text-slate-900">04. 기대 효과 & 학습점</h5>
-                            <ul class="space-y-2 text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
+                            <h5 class="font-bold text-base md:text-lg mb-2 md:mb-3 text-slate-900">04. 기대 효과 & 학습점</h5>
+                            <ul class="space-y-2 text-xs md:text-sm text-slate-600 leading-relaxed list-disc list-inside marker:text-blue-400">
                                 <li>저비용으로 고급스러운 아트 패키지를 구현하여 해외 DTC 시장에서 강력한 시각적 차별화 확보.</li>
                                 <li>카드지갑 휴대성 + 예술적 디자인의 결합으로 구매 충동 유발 및 브랜드 프리미엄 이미지 구축.</li>
                                 <li><strong class="text-blue-600">핵심 레슨:</strong> 그래픽 디자인 주도의 상품 기획, AI+일러스트 하이브리드 제작, 저비용 인하우스 풀 프로세스의 성공적 검증.</li>
@@ -1176,7 +1182,7 @@
             const grid = document.getElementById('productGrid');
             if (!grid) return;
             grid.innerHTML = products.map(p => `
-                <div class="group relative bg-white rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full transform hover:-translate-y-2" onclick="openProduct(${p.id})">
+                <div class="group relative bg-white rounded-2xl overflow-hidden cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-500 border border-gray-100 flex flex-col h-full transform hover:-translate-y-1 md:hover:-translate-y-2" onclick="openProduct(${p.id})">
                     <!-- Image Container with Hover Overlay -->
                     <div class="relative aspect-[4/5] bg-gray-50 overflow-hidden border-b border-gray-100">
                         <img src="${p.img}" alt="${p.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
@@ -1184,33 +1190,33 @@
                         <!-- Dim Overlay & View Case Study Button -->
                         <div class="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
                             <div class="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300 flex flex-col items-center">
-                                <div class="w-14 h-14 rounded-full bg-blue-600 text-white flex items-center justify-center mb-3 shadow-xl">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <div class="w-12 h-12 md:w-14 md:h-14 rounded-full bg-blue-600 text-white flex items-center justify-center mb-2 md:mb-3 shadow-xl">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="md:w-6 md:h-6">
                                         <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
                                     </svg>
                                 </div>
-                                <span class="text-white font-bold tracking-widest uppercase text-sm drop-shadow-md">View Case Study</span>
+                                <span class="text-white font-bold tracking-widest uppercase text-xs md:text-sm drop-shadow-md">View Case Study</span>
                             </div>
                         </div>
                         
                         <!-- Top Tag -->
-                        <div class="absolute top-4 left-4 flex gap-2 z-10">
-                            <span class="px-3 py-1 bg-white/95 backdrop-blur-sm text-slate-900 text-[10px] font-black uppercase tracking-widest rounded-full shadow-sm">
+                        <div class="absolute top-3 left-3 md:top-4 md:left-4 flex gap-2 z-10">
+                            <span class="px-2 py-1 md:px-3 bg-white/95 backdrop-blur-sm text-slate-900 text-[9px] md:text-[10px] font-black uppercase tracking-widest rounded-full shadow-sm">
                                 PROJ #0${p.id}
                             </span>
                         </div>
                     </div>
 
                     <!-- Card Content -->
-                    <div class="p-8 flex flex-col flex-grow bg-white relative z-10">
-                        <div class="flex justify-between items-start mb-4">
-                            <div class="text-[10px] font-bold text-blue-600 uppercase tracking-widest font-brand bg-blue-50 px-2 py-1 rounded-md">${p.category}</div>
-                            <div class="text-slate-900 font-black text-sm">${p.price}</div>
+                    <div class="p-6 md:p-8 flex flex-col flex-grow bg-white relative z-10">
+                        <div class="flex justify-between items-start mb-3 md:mb-4">
+                            <div class="text-[9px] md:text-[10px] font-bold text-blue-600 uppercase tracking-widest font-brand bg-blue-50 px-2 py-1 rounded-md">${p.category}</div>
+                            <div class="text-slate-900 font-black text-xs md:text-sm">${p.price}</div>
                         </div>
-                        <h3 class="text-2xl font-black tracking-tighter uppercase group-hover:text-blue-600 transition-colors leading-tight break-keep">${p.title}</h3>
+                        <h3 class="text-xl md:text-2xl font-black tracking-tighter uppercase group-hover:text-blue-600 transition-colors leading-tight break-keep">${p.title}</h3>
                         
                         <!-- Read More line -->
-                        <div class="mt-6 pt-6 border-t border-gray-100 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-blue-600 transition-colors uppercase tracking-widest mt-auto">
+                        <div class="mt-4 pt-4 md:mt-6 md:pt-6 border-t border-gray-100 flex items-center justify-between text-[10px] md:text-xs font-bold text-slate-400 group-hover:text-blue-600 transition-colors uppercase tracking-widest mt-auto">
                             <span>상세 기획 보기</span>
                             <span class="transform group-hover:translate-x-1 transition-transform">→</span>
                         </div>
@@ -1297,15 +1303,15 @@
                 }
 
                 return `
-                <div class="break-inside-avoid mb-6 fade-in visible">
+                <div class="break-inside-avoid mb-4 md:mb-6 fade-in visible">
                     <div class="group relative rounded-xl overflow-hidden bg-slate-50 border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300">
                         <div class="${wrapperClass}">
                             ${mediaContent}
                         </div>
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 pointer-events-none">
-                            <span class="text-blue-400 text-[10px] font-black uppercase tracking-widest mb-1 block">${item.type.toUpperCase()}</span>
-                            <h4 class="text-white font-bold text-lg leading-tight mb-2">${item.title}</h4>
-                            <p class="text-slate-300 text-xs font-medium">${item.desc}</p>
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4 md:p-6 pointer-events-none">
+                            <span class="text-blue-400 text-[9px] md:text-[10px] font-black uppercase tracking-widest mb-1 block">${item.type.toUpperCase()}</span>
+                            <h4 class="text-white font-bold text-sm md:text-lg leading-tight mb-1 md:mb-2">${item.title}</h4>
+                            <p class="text-slate-300 text-[10px] md:text-xs font-medium">${item.desc}</p>
                         </div>
                     </div>
                 </div>
@@ -1318,7 +1324,7 @@
                     let paginationHtml = '';
                     for (let i = 1; i <= totalPages; i++) {
                         const activeClass = i === page ? 'bg-slate-900 text-white' : 'bg-gray-100 text-slate-600 hover:bg-gray-200';
-                        paginationHtml += `<button onclick="renderDesignGrid('${filter}', ${i}); document.getElementById('design-portfolio').scrollIntoView({behavior: 'smooth'});" class="w-10 h-10 flex items-center justify-center rounded-full text-sm font-bold transition-colors ${activeClass}">${i}</button>`;
+                        paginationHtml += `<button onclick="renderDesignGrid('${filter}', ${i}); document.getElementById('design-portfolio').scrollIntoView({behavior: 'smooth'});" class="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center rounded-full text-xs md:text-sm font-bold transition-colors ${activeClass}">${i}</button>`;
                     }
                     paginationContainer.innerHTML = paginationHtml;
                     paginationContainer.style.display = 'flex';
@@ -1361,18 +1367,18 @@
             const renderHorizontalImages = (images, emptyMessage) => {
                 if (images && images.length > 0) {
                     const imagesHtml = images.map(imgUrl => 
-                        `<div class="flex-none w-[80%] md:w-[45%] max-w-sm snap-center">
+                        `<div class="flex-none w-[85%] md:w-[45%] max-w-sm snap-center">
                             <img src="${imgUrl}" alt="갤러리 이미지" class="w-full h-auto rounded-xl shadow-sm border border-gray-100">
                         </div>`
                     ).join('');
                     return `
-                        <div class="flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4" style="scroll-behavior: smooth;">
+                        <div class="flex gap-3 md:gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4" style="scroll-behavior: smooth;">
                             ${imagesHtml}
                         </div>
-                        <p class="text-center text-xs text-slate-400 mt-2">좌우로 스크롤하여 확인하세요</p>
+                        <p class="text-center text-[10px] md:text-xs text-slate-400 mt-2">좌우로 스크롤하여 확인하세요</p>
                     `;
                 } else {
-                    return `<div class="p-12 text-center text-slate-400 bg-gray-50 rounded-xl border border-gray-100 font-medium">${emptyMessage}</div>`;
+                    return `<div class="p-8 md:p-12 text-center text-xs md:text-sm text-slate-400 bg-gray-50 rounded-xl border border-gray-100 font-medium">${emptyMessage}</div>`;
                 }
             };
 
